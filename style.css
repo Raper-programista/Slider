@@ -1,0 +1,22 @@
+    *{
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+    }
+
+    .container {
+        margin: auto;
+        display: flex;
+        border: 5px solid black;
+        overflow: hidden;
+    }
+
+    .slide {
+        display: flex;
+        width: 60%;
+        height: auto;
+    }
+
+    .button {
+        position: absolute;
+    }
