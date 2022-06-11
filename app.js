@@ -13,18 +13,19 @@ const nextButton = document.querySelector('#next-button');
 const LAST = 5;
 let counter = 1;
 
-function createDiv(numImage) {
+function createDiv(numImage, divImage) {
 
-    if(numImage)
+    var idName = divImage.id;
+    var className = divImage.classList[0]
 
-    return(
-        '<div class="slide-center">' +
-            '<img src="./img/cars/' +numImage+ '.png" alt="">' +
+    divImage.innerHTML = (
+        '<div id="' +idName+ '" class="' +className+ '">'
+            + '<img src="./img/cars/' +numImage+ '.png" alt="">' +
         '</div>'
-    )
+    ) 
 }
 
-function prevNum(num) {
+function nextNum(num) {
 
     if(num === 1)
         return LAST;
@@ -32,7 +33,7 @@ function prevNum(num) {
         return --num;
 }
 
-function nextNum(num) {
+function prevNum(num) {
 
     if(num === LAST)
         return 1
@@ -45,10 +46,9 @@ function changeDivs() {
     const prev = prevNum(counter);
     const next = nextNum(counter);
 
-    prevImage.innerHTML = createDiv(prev);
-    centerImage.innerHTML = createDiv(counter);
-    nextImage.innerHTML = centerImage(next);
-
+    createDiv(prev, prevImage);
+    createDiv(counter, centerImage);
+    createDiv(next, nextImage);
 }
 
 prevButton.addEventListener('click', () => {
